@@ -1,4 +1,7 @@
 <?php
+    session_set_cookie_params(["SameSite" => "none"]); //none, lax, strict
+    session_set_cookie_params(["Secure" => "true"]); //false, true
+    session_start();
     // Required Variables
     $svcScope = "https://www.googleapis.com/auth/youtube.readonly";
     $authFile = "auth/client_secret.json";
@@ -11,7 +14,7 @@
     $client = new Google_Client();
     $client->setAuthConfig($authFile);
     $client->addScope($svcScope);
-    $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST']);
+    $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST'] . '/ytchat');
 
     // Begin User Prompt
     $authUrl = $client->createAuthUrl();
@@ -61,6 +64,8 @@
         <script src="inc/main.js" type="text/javascript"></script>
     </head>
     <body>
-        <!-- Nothing required here because it's handled by the echo in PHP biatch. -->
+        <?php
+
+        ?>
     </body>
 </html>
