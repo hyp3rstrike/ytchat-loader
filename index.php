@@ -15,6 +15,7 @@
     $client->setAuthConfig($authFile);
     $client->addScope($svcScope);
     $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST'] . '/ytchat');
+    $client->setPrompt('consent');
 
     // Begin User Prompt
     $authUrl = $client->createAuthUrl();
