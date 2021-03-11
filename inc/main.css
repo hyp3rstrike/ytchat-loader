@@ -1,3 +1,7 @@
 .authButton {
     border: 1px solid #000;
 }
+
+.console {
+    align-items: center;
+}
