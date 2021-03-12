@@ -12,6 +12,7 @@
 
     // Google OAuth Begins *dramatic music*
     $client = new Google_Client();
+    $client->setApplicationName('YouTube Chat Loader');
     $client->setAuthConfig($authFile);
     $client->addScope($svcScope);
     $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST'] . '/ytchat');
@@ -46,9 +47,18 @@
             'mine' => true
         ];
 
-        $response = $service->liveBroadcasts->listLiveBroadcasts('id', $queryParams);
-        $streamId = $response->items[0]->id;
-        header('Location: https://www.youtube.com/live_chat?v=' . $streamId . '&is_popout=1&dark_theme=1');
+        $response = $service->liveBroadcasts->listLiveBroadcasts('snippet', $queryParams);
+        $stream1id = $response->items[0]->id;
+        $stream1name = $response->items[0]->title;
+        $stream2id = $response->items[1]->id;
+        $stream2name = $response->items[1]->title;
+        $stream3id = $response->items[2]->id;
+        $stream3name = $response->items[2]->title;
+
+        print_r($stream1id);
+        print_r($stream1name);
+
+        // header('Location: https://www.youtube.com/live_chat?v=' . $stream1id . '&is_popout=1&dark_theme=1');
         
     } else {
         // or tell you something fucked up
@@ -65,8 +75,8 @@
         <script src="inc/main.js" type="text/javascript"></script>
     </head>
     <body>
-        <?php
+        
 
-        ?>
+        <a href="privacy.html">Privacy Policy</a>
     </body>
 </html>
