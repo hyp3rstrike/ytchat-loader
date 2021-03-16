@@ -23,10 +23,5 @@ If you prefer to self host it, you can download it from the releases or fork it.
 
 You will need to create an API Key and Client ID in your own project via the [Google Developer Console](https://console.developers.google.com). The API you'll need access to is the YouTube Data V3. The rest is pretty much "read and fill".
 
-You'll also need to use Composer to grab the Google OAuth 2.0 library in the root directory of the project.
-
-You can run this in your preferred terminal, or check out the more detailed instructions on the PHP library documentation [here](https://github.com/googleapis/google-api-php-client#composer).
-```composer require google/apiclient:"^2.7"```
-
 # Support
 This project shouldn't need a great deal of support, if at all. But if you have a problem, and you've followed the golden rule of RTFM, then lodge an issue.

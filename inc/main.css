@@ -5,3 +5,7 @@
 .console {
     align-items: center;
 }
+
+.container {
+    max-width: 800px;
+}
